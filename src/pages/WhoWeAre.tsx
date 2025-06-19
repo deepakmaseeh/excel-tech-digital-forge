@@ -1,15 +1,35 @@
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Users, Target, Lightbulb, Award } from "lucide-react";
+import { Users, Target, Lightbulb, Award, Clock } from "lucide-react";
 
 const WhoWeAre = () => {
   const timeline = [
-    { year: "2020", event: "Founded with a mission to democratize digital excellence" },
-    { year: "2021", event: "Launched our first major enterprise solution" },
-    { year: "2022", event: "Expanded team to 25+ professionals" },
-    { year: "2023", event: "Achieved 200+ successful project milestone" },
-    { year: "2024", event: "Opened new innovation lab and design studio" }
+    { 
+      year: "2020", 
+      event: "Founded with a mission to democratize digital excellence",
+      description: "Started as a small team of passionate developers with a vision to make enterprise-level digital solutions accessible to businesses of all sizes."
+    },
+    { 
+      year: "2021", 
+      event: "Launched our first major enterprise solution",
+      description: "Successfully delivered our first large-scale project, establishing our reputation for handling complex technical challenges."
+    },
+    { 
+      year: "2022", 
+      event: "Expanded team to 25+ professionals",
+      description: "Grew our team with specialized talent in design, development, and digital marketing to better serve our growing client base."
+    },
+    { 
+      year: "2023", 
+      event: "Achieved 200+ successful project milestone",
+      description: "Reached a significant milestone in project delivery, with clients spanning from innovative startups to Fortune 500 companies."
+    },
+    { 
+      year: "2024", 
+      event: "Opened new innovation lab and design studio",
+      description: "Invested in cutting-edge facilities and tools to stay at the forefront of emerging technologies and design trends."
+    }
   ];
 
   const values = [
@@ -86,8 +106,61 @@ const WhoWeAre = () => {
         </div>
       </section>
 
-      {/* Our Values */}
+      {/* Our Journey Timeline */}
       <section className="py-24">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16 fade-in-up">
+            <div className="flex items-center justify-center mb-6">
+              <Clock className="text-electric-cyan mr-3" size={36} />
+              <h2 className="text-4xl lg:text-5xl font-light">
+                Our <span className="text-gradient">Journey</span>
+              </h2>
+            </div>
+            <p className="text-xl text-body max-w-3xl mx-auto">
+              From a small startup to a trusted digital partner, here's how we've grown alongside our clients.
+            </p>
+          </div>
+
+          <div className="max-w-5xl mx-auto relative">
+            {/* Timeline Line */}
+            <div className="absolute left-1/2 transform -translate-x-0.5 w-px h-full bg-gradient-to-b from-electric-cyan via-electric-cyan/50 to-transparent hidden lg:block"></div>
+            
+            <div className="space-y-12">
+              {timeline.map((item, index) => (
+                <div 
+                  key={item.year}
+                  className="relative fade-in-up"
+                  style={{ animationDelay: `${index * 200}ms` }}
+                >
+                  <div className={`lg:flex items-center ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8`}>
+                    
+                    {/* Timeline Node (Desktop) */}
+                    <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-electric-cyan rounded-full border-4 border-tech-dark shadow-lg shadow-electric-cyan/50"></div>
+                    
+                    {/* Year Badge */}
+                    <div className={`lg:w-1/2 ${index % 2 === 0 ? 'lg:text-right lg:pr-12' : 'lg:text-left lg:pl-12'} mb-4 lg:mb-0`}>
+                      <div className="inline-block glass-card px-6 py-3">
+                        <span className="text-3xl font-bold text-gradient">{item.year}</span>
+                      </div>
+                    </div>
+                    
+                    {/* Content Card */}
+                    <div className={`lg:w-1/2 ${index % 2 === 0 ? 'lg:pl-12' : 'lg:pr-12'}`}>
+                      <div className="glass-card p-6 hover:scale-105 transition-all duration-300">
+                        <h3 className="text-xl font-medium mb-3 text-white">{item.event}</h3>
+                        <p className="text-body leading-relaxed">{item.description}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Values */}
+      <section className="py-24 bg-gradient-to-b from-tech-dark to-slate-900/50">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16 fade-in-up">
             <h2 className="text-4xl lg:text-5xl font-light mb-6">
@@ -112,39 +185,6 @@ const WhoWeAre = () => {
                 <p className="text-body leading-relaxed">{value.description}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Our Story Timeline */}
-      <section className="py-24 bg-gradient-to-b from-tech-dark to-slate-900/50">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16 fade-in-up">
-            <h2 className="text-4xl lg:text-5xl font-light mb-6">
-              Our <span className="text-gradient">Journey</span>
-            </h2>
-            <p className="text-xl text-body max-w-3xl mx-auto">
-              From a small startup to a trusted digital partner, here's how we've grown alongside our clients.
-            </p>
-          </div>
-
-          <div className="max-w-4xl mx-auto">
-            <div className="space-y-8">
-              {timeline.map((item, index) => (
-                <div 
-                  key={item.year}
-                  className="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-8 fade-in-up"
-                  style={{ animationDelay: `${index * 200}ms` }}
-                >
-                  <div className="glass-card p-4 text-center min-w-[100px]">
-                    <span className="text-2xl font-bold text-gradient">{item.year}</span>
-                  </div>
-                  <div className="glass-card p-6 flex-1 text-center md:text-left">
-                    <p className="text-body text-lg">{item.event}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>
