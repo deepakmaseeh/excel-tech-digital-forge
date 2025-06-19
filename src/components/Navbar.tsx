@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -24,17 +25,9 @@ const Navbar = () => {
     { name: "Contact", href: "/contact" },
   ];
 
-  const scrollToSection = (sectionId: string) => {
-    if (location.pathname !== "/") return;
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? "glass-card bg-opacity-80 backdrop-blur-xl" : "bg-transparent"
+      isScrolled ? "aesthetic-card bg-opacity-80 backdrop-blur-xl" : "bg-transparent"
     }`}>
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
@@ -48,31 +41,35 @@ const Navbar = () => {
               <Link
                 key={item.name}
                 to={item.href}
-                className="text-white hover:text-electric-cyan transition-colors duration-300 font-light"
+                className="text-foreground hover:text-primary transition-colors duration-300 font-light"
               >
                 {item.name}
               </Link>
             ))}
+            <ThemeToggle />
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-white p-2"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          {/* Mobile Menu Button and Theme Toggle */}
+          <div className="md:hidden flex items-center space-x-4">
+            <ThemeToggle />
+            <button
+              className="text-foreground p-2"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 glass-card bg-opacity-95 backdrop-blur-xl border-t border-glass-border">
+          <div className="md:hidden absolute top-full left-0 right-0 aesthetic-card bg-opacity-95 backdrop-blur-xl border-t border-border">
             <div className="flex flex-col space-y-4 p-6">
               {navItems.map((item, index) => (
                 <Link
                   key={item.name}
                   to={item.href}
-                  className="text-white hover:text-electric-cyan transition-all duration-300 font-light opacity-0 animate-fade-in"
+                  className="text-foreground hover:text-primary transition-all duration-300 font-light opacity-0 animate-fade-in"
                   style={{ animationDelay: `${index * 100}ms`, animationFillMode: "forwards" }}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >

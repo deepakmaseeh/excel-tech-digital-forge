@@ -1,4 +1,3 @@
-
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Users, Target, Lightbulb, Award, Clock, Heart } from "lucide-react";
@@ -56,7 +55,7 @@ const WhoWeAre = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-cream">
+    <div className="min-h-screen bg-background transition-colors duration-300">
       <Navbar />
       
       {/* Hero Section */}
@@ -66,7 +65,7 @@ const WhoWeAre = () => {
         <div className="absolute bottom-20 right-10 w-48 h-48 bg-soft-blue/20 rounded-full blur-3xl floating-element" style={{ animationDelay: "2s" }}></div>
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center mb-16 fade-in-up">
-            <h1 className="text-5xl lg:text-7xl font-light mb-6 text-sage-dark">
+            <h1 className="text-5xl lg:text-7xl font-light mb-6 text-foreground">
               Who <span className="text-gradient">We Are</span>
             </h1>
             <p className="text-xl text-body max-w-4xl mx-auto leading-relaxed">
@@ -78,11 +77,11 @@ const WhoWeAre = () => {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-24 bg-gradient-to-b from-champagne/30 to-cream">
+      <section className="py-24 bg-gradient-to-b from-secondary/30 to-background">
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16">
             <div className="fade-in-up">
-              <h2 className="text-4xl font-light mb-6 text-sage-dark">Our <span className="text-gradient">Mission</span></h2>
+              <h2 className="text-4xl font-light mb-6 text-foreground">Our <span className="text-gradient">Mission</span></h2>
               <p className="text-body text-lg leading-relaxed mb-6">
                 To create digital experiences that inspire, delight, and connect people with brands in meaningful ways. 
                 We believe that great design has the power to transform not just businesses, but the lives they touch.
@@ -94,7 +93,7 @@ const WhoWeAre = () => {
             </div>
             
             <div className="fade-in-up" style={{ animationDelay: "200ms" }}>
-              <h2 className="text-4xl font-light mb-6 text-sage-dark">Our <span className="text-gradient">Vision</span></h2>
+              <h2 className="text-4xl font-light mb-6 text-foreground">Our <span className="text-gradient">Vision</span></h2>
               <p className="text-body text-lg leading-relaxed mb-6">
                 To be the creative partner that businesses turn to when they want to create something truly special - 
                 digital experiences that stand out in a crowded world through thoughtful design and authentic storytelling.
@@ -113,8 +112,8 @@ const WhoWeAre = () => {
         <div className="container mx-auto px-6">
           <div className="text-center mb-16 fade-in-up">
             <div className="flex items-center justify-center mb-6">
-              <Clock className="text-sage mr-3" size={36} />
-              <h2 className="text-4xl lg:text-5xl font-light text-sage-dark">
+              <Clock className="text-primary mr-3" size={36} />
+              <h2 className="text-4xl lg:text-5xl font-light text-foreground">
                 Our <span className="text-gradient">Journey</span>
               </h2>
             </div>
@@ -125,7 +124,7 @@ const WhoWeAre = () => {
 
           <div className="max-w-5xl mx-auto relative">
             {/* Timeline Line */}
-            <div className="absolute left-1/2 transform -translate-x-0.5 w-px h-full bg-gradient-to-b from-sage via-sage/50 to-transparent hidden lg:block"></div>
+            <div className="absolute left-1/2 transform -translate-x-0.5 w-px h-full bg-gradient-to-b from-primary via-primary/50 to-transparent hidden lg:block"></div>
             
             <div className="space-y-12">
               {timeline.map((item, index) => (
@@ -137,7 +136,7 @@ const WhoWeAre = () => {
                   <div className={`lg:flex items-center ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8`}>
                     
                     {/* Timeline Node (Desktop) */}
-                    <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-sage rounded-full border-4 border-cream shadow-lg"></div>
+                    <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-background shadow-lg"></div>
                     
                     {/* Year Badge */}
                     <div className={`lg:w-1/2 ${index % 2 === 0 ? 'lg:text-right lg:pr-12' : 'lg:text-left lg:pl-12'} mb-4 lg:mb-0`}>
@@ -149,7 +148,7 @@ const WhoWeAre = () => {
                     {/* Content Card */}
                     <div className={`lg:w-1/2 ${index % 2 === 0 ? 'lg:pl-12' : 'lg:pr-12'}`}>
                       <div className="aesthetic-card p-6 hover:scale-105 transition-all duration-300 hover:shadow-xl">
-                        <h3 className="text-xl font-medium mb-3 text-sage-dark font-serif">{item.event}</h3>
+                        <h3 className="text-xl font-medium mb-3 text-foreground font-serif">{item.event}</h3>
                         <p className="text-body leading-relaxed">{item.description}</p>
                       </div>
                     </div>
@@ -162,10 +161,10 @@ const WhoWeAre = () => {
       </section>
 
       {/* Our Values */}
-      <section className="py-24 bg-gradient-to-b from-cream to-blush/20">
+      <section className="py-24 bg-gradient-to-b from-background to-secondary/20">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16 fade-in-up">
-            <h2 className="text-4xl lg:text-5xl font-light mb-6 text-sage-dark">
+            <h2 className="text-4xl lg:text-5xl font-light mb-6 text-foreground">
               Our <span className="text-gradient">Values</span>
             </h2>
             <p className="text-xl text-body max-w-3xl mx-auto">
@@ -181,10 +180,10 @@ const WhoWeAre = () => {
                 className="aesthetic-card p-8 text-center hover:scale-105 transition-all duration-300 fade-in-up hover:shadow-xl"
                 style={{ animationDelay: `${index * 150}ms` }}
               >
-                <div className="text-sage mb-6 flex justify-center">
+                <div className="text-primary mb-6 flex justify-center">
                   <value.icon size={48} />
                 </div>
-                <h3 className="text-xl font-medium mb-4 text-sage-dark font-serif">{value.title}</h3>
+                <h3 className="text-xl font-medium mb-4 text-foreground font-serif">{value.title}</h3>
                 <p className="text-body leading-relaxed">{value.description}</p>
               </div>
             ))}
@@ -196,7 +195,7 @@ const WhoWeAre = () => {
       <section className="py-24">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16 fade-in-up">
-            <h2 className="text-4xl lg:text-5xl font-light mb-6 text-sage-dark">
+            <h2 className="text-4xl lg:text-5xl font-light mb-6 text-foreground">
               Meet Our <span className="text-gradient">Creative Family</span>
             </h2>
             <p className="text-xl text-body max-w-3xl mx-auto">
@@ -222,10 +221,10 @@ const WhoWeAre = () => {
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-4 border-sage/20"
+                  className="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-4 border-primary/20"
                 />
-                <h3 className="text-xl font-medium mb-2 text-sage-dark font-serif">{member.name}</h3>
-                <p className="text-sage">{member.role}</p>
+                <h3 className="text-xl font-medium mb-2 text-foreground font-serif">{member.name}</h3>
+                <p className="text-primary">{member.role}</p>
               </div>
             ))}
           </div>

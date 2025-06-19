@@ -35,6 +35,36 @@
 
     --radius: 1rem;
   }
+
+  .dark {
+    --background: 15 15 15;
+    --foreground: 245 243 240;
+
+    --card: 30 30 30;
+    --card-foreground: 245 243 240;
+
+    --popover: 30 30 30;
+    --popover-foreground: 245 243 240;
+
+    --primary: 156 175 136;
+    --primary-foreground: 15 15 15;
+
+    --secondary: 45 45 45;
+    --secondary-foreground: 245 243 240;
+
+    --muted: 60 60 60;
+    --muted-foreground: 163 163 163;
+
+    --accent: 60 60 60;
+    --accent-foreground: 245 243 240;
+
+    --destructive: 220 38 38;
+    --destructive-foreground: 245 243 240;
+
+    --border: 45 45 45;
+    --input: 45 45 45;
+    --ring: 156 175 136;
+  }
 }
 
 @layer base {
@@ -43,27 +73,25 @@
   }
 
   body {
-    @apply bg-cream text-foreground font-sans;
+    @apply bg-background text-foreground font-sans transition-colors duration-300;
     font-weight: 400;
     letter-spacing: -0.01em;
     overflow-x: hidden;
   }
   
   .text-body {
-    @apply text-warm-gray;
+    @apply text-muted-foreground;
   }
   
   .aesthetic-card {
-    @apply bg-glass-white backdrop-blur-soft border border-glass-border rounded-2xl shadow-lg;
+    @apply bg-card/85 backdrop-blur-soft border border-border rounded-2xl shadow-lg transition-colors duration-300;
   }
   
   .elegant-btn {
-    background: linear-gradient(145deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+    @apply bg-gradient-to-br from-card/90 to-card/70 backdrop-blur-soft border border-border/50 transition-all duration-300;
     box-shadow: 
       0 8px 32px rgba(156, 175, 136, 0.15),
-      inset 0 1px 0 rgba(255,255,255,0.8),
-      inset 0 -1px 0 rgba(156, 175, 136, 0.1);
-    border: 1px solid rgba(156, 175, 136, 0.2);
+      inset 0 1px 0 rgba(255,255,255,0.1);
   }
   
   .elegant-btn:hover {
@@ -103,6 +131,11 @@
     background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  .dark .glass-morphism {
+    background: rgba(30, 30, 30, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.1);
   }
   
   .soft-shadow {
