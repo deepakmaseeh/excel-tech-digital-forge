@@ -5,35 +5,35 @@
 
 @layer base {
   :root {
-    --background: 240 10% 6%;
-    --foreground: 0 0% 98%;
+    --background: 250 248 245;
+    --foreground: 71 66 60;
 
-    --card: 240 10% 8%;
-    --card-foreground: 0 0% 95%;
+    --card: 255 255 255;
+    --card-foreground: 71 66 60;
 
-    --popover: 240 10% 8%;
-    --popover-foreground: 0 0% 95%;
+    --popover: 255 255 255;
+    --popover-foreground: 71 66 60;
 
-    --primary: 180 100% 50%;
-    --primary-foreground: 240 10% 6%;
+    --primary: 156 175 136;
+    --primary-foreground: 250 248 245;
 
-    --secondary: 240 4% 16%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 247 231 206;
+    --secondary-foreground: 71 66 60;
 
-    --muted: 240 5% 12%;
-    --muted-foreground: 240 5% 65%;
+    --muted: 139 134 128;
+    --muted-foreground: 139 134 128;
 
-    --accent: 240 4% 16%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 244 194 194;
+    --accent-foreground: 71 66 60;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 220 38 38;
+    --destructive-foreground: 250 248 245;
 
-    --border: 240 6% 20%;
-    --input: 240 6% 20%;
-    --ring: 180 100% 50%;
+    --border: 229 229 229;
+    --input: 229 229 229;
+    --ring: 156 175 136;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
   }
 }
 
@@ -43,38 +43,41 @@
   }
 
   body {
-    @apply bg-tech-dark text-foreground font-sans;
-    font-weight: 300;
-    letter-spacing: -0.025em;
+    @apply bg-cream text-foreground font-sans;
+    font-weight: 400;
+    letter-spacing: -0.01em;
     overflow-x: hidden;
   }
   
   .text-body {
-    @apply opacity-70;
+    @apply text-warm-gray;
   }
   
-  .glass-card {
-    @apply bg-glass-white backdrop-blur-glass border border-glass-border rounded-xl shadow-2xl;
+  .aesthetic-card {
+    @apply bg-glass-white backdrop-blur-soft border border-glass-border rounded-2xl shadow-lg;
   }
   
-  .neumorphic-btn {
-    background: linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+  .elegant-btn {
+    background: linear-gradient(145deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
     box-shadow: 
-      inset 2px 2px 5px rgba(255,255,255,0.1),
-      inset -2px -2px 5px rgba(0,0,0,0.3),
-      0 0 10px rgba(0,0,0,0.3);
+      0 8px 32px rgba(156, 175, 136, 0.15),
+      inset 0 1px 0 rgba(255,255,255,0.8),
+      inset 0 -1px 0 rgba(156, 175, 136, 0.1);
+    border: 1px solid rgba(156, 175, 136, 0.2);
   }
   
-  .neumorphic-btn:hover {
-    @apply animate-glow;
+  .elegant-btn:hover {
+    @apply animate-gentle-glow;
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
   }
   
-  .tech-grid-bg {
+  .aesthetic-grid-bg {
     background-image: 
-      linear-gradient(rgba(0, 246, 255, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0, 246, 255, 0.03) 1px, transparent 1px);
-    background-size: 50px 50px;
-    animation: grid-move 20s linear infinite;
+      linear-gradient(rgba(156, 175, 136, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(156, 175, 136, 0.05) 1px, transparent 1px);
+    background-size: 60px 60px;
+    animation: gentle-move 40s linear infinite;
   }
 
   .fade-in-up {
@@ -82,12 +85,27 @@
   }
 
   h1, h2, h3 {
-    letter-spacing: -0.03em;
+    @apply font-serif;
+    letter-spacing: -0.02em;
+  }
+
+  .text-gradient {
+    @apply bg-sage-gradient bg-clip-text text-transparent;
+  }
+
+  .floating-element {
+    @apply animate-float;
   }
 }
 
 @layer utilities {
-  .text-gradient {
-    @apply bg-electric-gradient bg-clip-text text-transparent;
+  .glass-morphism {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  .soft-shadow {
+    box-shadow: 0 10px 40px rgba(156, 175, 136, 0.1), 0 4px 16px rgba(156, 175, 136, 0.05);
   }
 }
